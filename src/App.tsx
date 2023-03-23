@@ -1,11 +1,21 @@
+import { useEffect } from 'react';
 import './App.css';
 import Header from './components/Header/Header';
 import CountryList from './components/SideMenu/CountryList';
 import { useAppSelector } from './store/hooks';
+import { fetchNews } from './store/news-actions'
+import { useAppDispatch } from './store/hooks';
 
-
+let isInitial = true;
 function App() {
+  const dispatch=useAppDispatch();
   // const isList = useAppSelector(state=>state.isList);
+  useEffect(()=>{
+    if(isInitial){
+      isInitial=false;
+      dispatch(fetchNews('pl'))
+    }
+  })
 
   return (
     <div className="App">

@@ -1,9 +1,9 @@
 import {createSlice} from '@reduxjs/toolkit'
 import { RootState } from './index'
 
-type newsSliceState = {isList: boolean , selectedCountry: string}
+type newsSliceState = {isList: boolean , selectedCountry: string, news: []}
 
-const newsInitialState: newsSliceState ={isList: true, selectedCountry: 'pl'}
+const newsInitialState: newsSliceState ={isList: true, selectedCountry: 'pl', news: []}
 
 const newsSlice = createSlice({
     name: 'news',
@@ -12,6 +12,11 @@ const newsSlice = createSlice({
         toggleView(state){
             state.isList = !state.isList;
         },
+        populateNews(state,action){
+            state.selectedCountry = action.payload;
+            state.news = action.payload.articles;
+            console.log(state.news)
+        }
     }
 })
 

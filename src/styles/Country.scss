@@ -5,7 +5,11 @@
     text-align: end;
     border-bottom: 1px solid black;
     min-width: 170px;
+    cursor: pointer;
     .flag{
         width: 15px;
+    }
+    &:hover{
+        background-color: gray;
     }
 }

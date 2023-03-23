@@ -5,10 +5,10 @@ import {newsActions} from '../../store/news-slice'
 const Header = () => {
     const isList = useAppSelector(state=>state.isList);
     const dispatch = useAppDispatch();
-    console.log(isList);
-    console.log(newsActions);
+    // console.log(isList);
+    // console.log(newsActions);
     const viewHandler = (event: any) => {
-      console.log(newsActions)
+      // console.log(newsActions)
         dispatch(newsActions.toggleView())
         // console.log(isList);
     }

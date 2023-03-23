@@ -1,5 +1,13 @@
 .countries{
+    width: 15%;
+    max-height: 90vh;
+    overflow-y: scroll;
+    padding-right: 10px;
     &__countries-list{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         list-style: none;
+    
     }
 }

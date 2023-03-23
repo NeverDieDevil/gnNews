@@ -7,7 +7,7 @@ const CountryList = () => {
   return (
     <div className="countries">
       <ul className='countries__countries-list'>
-      {countries.map(country => <Country country={country} />)}
+      {countries.map(country => <Country country={country}/>)}
       </ul>
     </div>
   )

@@ -1,6 +1,7 @@
 import '../../styles/Country.scss'
 import { fetchNews } from '../../store/news-actions'
 import { useAppDispatch } from '../../store/hooks';
+import { newsActions } from '../../store/news-slice';
 
 // const images = require.context("../../images/flags", true)
 
@@ -20,6 +21,7 @@ const Country: React.FC<{country: CountryInterface}> = (props) => {
   // console.log(flagImagePath);
   const fetchData = (e: React.MouseEvent, country:string) => {
     dispatch(fetchNews(country))
+    dispatch(newsActions.setSelectedCountry(country))
   }
 
   return (

@@ -1,27 +1,58 @@
-import {createSlice} from '@reduxjs/toolkit'
-import { RootState } from './index'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { RootState } from './index';
 
-type newsSliceState = {isList: boolean , selectedCountry: string, news: []}
+type News = {
+  source: {
+    id: string;
+    name: string;
+  };
+  author: string;
+  title: string;
+  description?: string;
+  url: string;
+  urlToImage?: string;
+  publishedAt: Date;
+  content?: string;
+};
 
-const newsInitialState: newsSliceState ={isList: true, selectedCountry: 'pl', news: []}
+type NewsSliceState = {
+  isList: boolean;
+  selectedCountry: string;
+  news: News[];
+};
+
+export type NewsAction = {
+  status: string;
+  totalResults: number;
+  articles: News[];
+};
+
+type SelectedCountryAction = string;
+
+const newsInitialState: NewsSliceState = {
+  isList: true,
+  selectedCountry: 'pl',
+  news: [],
+};
 
 const newsSlice = createSlice({
-    name: 'news',
-    initialState: newsInitialState,
-    reducers:{
-        toggleView(state){
-            state.isList = !state.isList;
-        },
-        populateNews(state,action){
-            state.selectedCountry = action.payload;
-            state.news = action.payload.articles;
-            console.log(state.news)
-        }
-    }
-})
+  name: 'news',
+  initialState: newsInitialState,
+  reducers: {
+    toggleView(state) {
+      state.isList = !state.isList;
+    },
+    populateNews(state, action: PayloadAction<NewsAction>) {
+      state.news = action.payload.articles;
+    },
+    setSelectedCountry(state, action: PayloadAction<SelectedCountryAction>) {
+      state.selectedCountry = action.payload;
+    },
+  },
+});
 
 export const newsActions = newsSlice.actions;
 
-export const isList =(state: RootState) => state.isList
+export const isList = (state: RootState) => state.isList;
 
 export default newsSlice;

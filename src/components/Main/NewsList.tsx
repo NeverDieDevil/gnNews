@@ -1,14 +1,16 @@
 import React from 'react'
 import { useAppSelector } from '../../store/hooks' 
 import NewsItem from './NewsItem'
+import '../../styles/NewsList.scss'
 
 const NewsList = () => {
-  const news = useAppSelector(state=>state.news)
-  console.log(news);
+  const newsList = useAppSelector(state=>state.news)
   return (
-    <div className="newslist">
-      {/* {news.map(info => <span>{info.title}</span>)} */}
-    </div>
+    <main className="newslist">
+      {newsList.map(news => {
+        return <NewsItem title={news.title} source={news.source.name} date={news.publishedAt} />
+      })}
+    </main>
   )
 }
 

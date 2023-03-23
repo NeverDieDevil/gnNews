@@ -1,4 +1,9 @@
-export const countries = [
+type Country = {
+  countryName: string,
+  abbv: string
+}
+
+export const countries: Country[] = [
   { countryName: "Argentina", abbv: "ar" },
   { countryName: "Greece", abbv: "gr" },
   { countryName: "Netherlands", abbv: "nl" },

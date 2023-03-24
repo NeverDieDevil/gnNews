@@ -1,11 +1,21 @@
-import { useEffect } from 'react';
-import './App.scss';
-import Header from './components/Header/Header';
-import CountryList from './components/SideMenu/CountryList';
-import { useAppSelector } from './store/hooks';
-import { fetchNews } from './store/news-actions';
-import { useAppDispatch } from './store/hooks';
-import NewsList from './components/Main/NewsList';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+import { useEffect } from "react";
+import "./App.scss";
+import { useAppSelector } from "./store/hooks";
+import { fetchNews } from "./store/news-actions";
+import { useAppDispatch } from "./store/hooks";
+import NewsList from "./components/Main/NewsList";
+import Root from "./pages/Root";
+
+const router = createBrowserRouter([
+  {
+    path: "/country",
+    element: <Root />,
+    // errorElement: <Error />,
+    children: [{ path: ":countryId", element: <NewsList /> }],
+  },
+]);
 
 let isInitial = true;
 function App() {
@@ -14,20 +24,11 @@ function App() {
   useEffect(() => {
     if (isInitial) {
       isInitial = false;
-      dispatch(fetchNews('pl'));
+      dispatch(fetchNews("pl"));
     }
   });
 
-  return (
-    <div className="App">
-      <Header />
-      {/* {isList && <p>Listing or not</p>} */}
-      <div className="main-view">
-        <NewsList />
-        <CountryList />
-      </div>
-    </div>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

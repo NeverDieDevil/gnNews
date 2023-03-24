@@ -1,5 +1,5 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { RootState } from './index';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { RootState } from "./index";
 
 type News = {
   source: {
@@ -31,12 +31,12 @@ type SelectedCountryAction = string;
 
 const newsInitialState: NewsSliceState = {
   isList: true,
-  selectedCountry: 'pl',
+  selectedCountry: "pl",
   news: [],
 };
 
 const newsSlice = createSlice({
-  name: 'news',
+  name: "news",
   initialState: newsInitialState,
   reducers: {
     toggleView(state) {

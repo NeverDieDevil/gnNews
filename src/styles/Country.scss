@@ -1,15 +1,15 @@
-.country{
-    font-size: 20px;
-    display: flex;
-    justify-content: space-between;
-    text-align: end;
-    border-bottom: 1px solid black;
-    min-width: 170px;
-    cursor: pointer;
-    .flag{
-        width: 15px;
-    }
-    &:hover{
-        background-color: gray;
-    }
+.country {
+  font-size: 20px;
+  display: flex;
+  justify-content: space-between;
+  text-align: end;
+  border-bottom: 1px solid black;
+  min-width: 170px;
+  cursor: pointer;
+  .flag {
+    width: 15px;
+  }
+  &:hover {
+    background-color: gray;
+  }
 }

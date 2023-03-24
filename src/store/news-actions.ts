@@ -1,8 +1,8 @@
-import { API_KEY } from '../data';
-import { NewsAction, newsActions } from './news-slice';
-import { AnyAction } from 'redux';
-import { RootState } from './index';
-import { ThunkAction } from 'redux-thunk';
+import { API_KEY } from "../data";
+import { NewsAction, newsActions } from "./news-slice";
+import { AnyAction } from "redux";
+import { RootState } from "./index";
+import { ThunkAction } from "redux-thunk";
 
 async function api<T>(url: string): Promise<T> {
   return await fetch(url)

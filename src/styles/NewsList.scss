@@ -1,4 +1,6 @@
 .newslist{
-    display: flex;
-    flex-direction: column;
+    ul{
+        list-style: none;
+        text-align: left;
+    }
 }

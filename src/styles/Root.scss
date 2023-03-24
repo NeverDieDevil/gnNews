@@ -1,0 +1,15 @@
+.App {
+  position: relative;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .main-view {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    width: 70%;
+    display: flex;
+  }
+}

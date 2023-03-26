@@ -1,8 +1,13 @@
 import React from 'react'
+import { useAppSelector } from '../../store/hooks'
+import Clock from './Clock'
 
 const Footer = () => {
+  const totalResults =  useAppSelector(state => state.totalResults)
   return (
-    <div>Footer</div>
+    <div>Liczba news'ów: {totalResults}
+      <Clock />
+    </div>
   )
 }
 

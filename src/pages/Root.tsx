@@ -1,9 +1,8 @@
-import React from 'react';
-import { Outlet } from 'react-router-dom';
-import Footer from '../components/Footer/Footer';
-import Header from '../components/Header/Header';
-import CountryList from '../components/SideMenu/CountryList';
-import '../styles/Root.scss';
+import { Outlet } from "react-router-dom";
+import Footer from "../components/Footer/Footer";
+import Header from "../components/Header/Header";
+import CountryList from "../components/SideMenu/CountryList";
+import "../styles/Root.scss";
 
 const Root = () => {
   return (

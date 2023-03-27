@@ -1,4 +1,8 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  Navigate,
+  RouterProvider,
+} from "react-router-dom";
 
 import { useEffect } from "react";
 import "./App.scss";
@@ -10,6 +14,10 @@ import Root from "./pages/Root";
 
 const router = createBrowserRouter([
   {
+    path: "/",
+    element: <Navigate to="/country/pl" />,
+  },
+  {
     path: "/country",
     element: <Root />,
     // errorElement: <Error />,
@@ -19,14 +27,11 @@ const router = createBrowserRouter([
 
 let isInitial = true;
 function App() {
+  const selectedCountry = useAppSelector((state) => state.selectedCountry);
+  console.log(selectedCountry);
   const dispatch = useAppDispatch();
+
   // const isList = useAppSelector(state=>state.isList);
-  useEffect(() => {
-    if (isInitial) {
-      isInitial = false;
-      dispatch(fetchNews("pl"));
-    }
-  });
 
   return <RouterProvider router={router} />;
 }

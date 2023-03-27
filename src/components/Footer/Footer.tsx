@@ -1,14 +1,16 @@
-import React from 'react'
-import { useAppSelector } from '../../store/hooks'
-import Clock from './Clock'
+import React from "react";
+import { useAppSelector } from "../../store/hooks";
+import Clock from "./Clock";
+import "../../styles/Footer.scss";
 
 const Footer = () => {
-  const totalResults =  useAppSelector(state => state.totalResults)
+  const totalResults = useAppSelector((state) => state.totalResults);
   return (
-    <div>Liczba news'ów: {totalResults}
+    <footer className="gnnews-footer">
+      Liczba news'ów: {totalResults}
       <Clock />
-    </div>
-  )
-}
+    </footer>
+  );
+};
 
-export default Footer
+export default Footer;

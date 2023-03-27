@@ -1,24 +1,19 @@
-import React, { useState, useEffect } from 'react'
-
+import React, { useState, useEffect } from "react";
 
 const Clock = () => {
-  const [getTime, setGetTime] = useState(new Date())
+  const [getTime, setGetTime] = useState(new Date());
   const refreshClock = () => {
-    setGetTime(new Date())
-  }
+    setGetTime(new Date());
+  };
 
-  useEffect(()=>{
+  useEffect(() => {
     const intervalId = setInterval(refreshClock, 1000);
-    return function cleanUp (){
-        clearInterval(intervalId)
-    }
-  },[])
+    return function cleanUp() {
+      clearInterval(intervalId);
+    };
+  }, []);
 
-    return (
-    <div>
-        {getTime.toLocaleTimeString()}
-    </div>
-  )
-}
+  return <div>{getTime.toLocaleTimeString("pl")}</div>;
+};
 
-export default Clock
+export default Clock;

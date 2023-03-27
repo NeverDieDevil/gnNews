@@ -1,6 +1,14 @@
-.newslist{
-    ul{
-        list-style: none;
-        text-align: left;
-    }
+.newslist {
+  .tiles {
+    display: grid;
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(min(100%, max(300px, 100%/4)), 1fr)
+    );
+  }
+  ul {
+    list-style: none;
+    text-align: left;
+  }
+  transition: 1s;
 }

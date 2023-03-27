@@ -2,7 +2,7 @@ import "../../styles/Country.scss";
 import { fetchNews } from "../../store/news-actions";
 import { useAppDispatch } from "../../store/hooks";
 import { newsActions } from "../../store/news-slice";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 // const images = require.context("../../images/flags", true)
 
@@ -11,23 +11,19 @@ interface CountryInterface {
   abbv: string;
 }
 
-const Country: React.FC<{ country: CountryInterface }> = (props) => {
-  const dispatch = useAppDispatch();
-
-  const { country } = props;
+const Country: React.FC<{
+  country: CountryInterface;
+  fetchData: (country: string) => void;
+}> = (props) => {
+  const { country, fetchData } = props;
   const { countryName, abbv } = country;
 
-  // const flagImagePath = images("./" + abbv + ".svg");
-  // const flagImagePath= `../../images/flags/${abbv}.svg`
-  // console.log(flagImagePath);
-  const fetchData = (e: React.MouseEvent, country: string) => {
-    dispatch(fetchNews(country));
-    dispatch(newsActions.setSelectedCountry(country));
-  };
-
   return (
-    <NavLink to={"/country/" + abbv}>
-      <li onClick={(e) => fetchData(e, abbv)} className="country">
+    <NavLink
+      className={({ isActive }) => (isActive ? "country active" : "country")}
+      to={"/country/" + abbv}
+    >
+      <li onClick={(e) => fetchData(abbv)}>
         <img src={`../images/flags/${abbv}.svg`} alt="" className="flag" />
         <span className="country-name">{countryName}</span>
       </li>

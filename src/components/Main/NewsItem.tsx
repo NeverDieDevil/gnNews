@@ -26,9 +26,9 @@ const NewsItem: React.FC<{
     <>
       <li
         onClick={!isList ? showModalHandler : () => {}}
-        className={`news-item ${isList ? "" : "tiles"}`}
+        className={`news-item ${isList ? "list" : "tile"}`}
       >
-        {isList ? null : <img src={img} />}
+        {isList ? null : <img src={img} alt="there should be photo..." />}
         <span className="news-item_title">{title}</span>
         <span className="news-item-details">
           <span className="news-item-details_source">{source}</span>

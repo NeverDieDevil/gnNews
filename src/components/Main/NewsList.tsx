@@ -5,9 +5,10 @@ import "../../styles/NewsList.scss";
 
 const NewsList = () => {
   const newsList = useAppSelector((state) => state.news);
+  const isList = useAppSelector((state) => state.isList);
   return (
-    <main className="newslist">
-      <ul>
+    <main className={`newslist `}>
+      <ul className={isList ? "list" : "tiles"}>
         {newsList.map((news) => {
           if (news.urlToImage && news.description) {
             return (

@@ -16,6 +16,7 @@ type News = {
 };
 
 type NewsSliceState = {
+  status: string;
   isList: boolean;
   selectedCountry: string;
   news: News[];
@@ -31,6 +32,7 @@ export type NewsAction = {
 type SelectedCountryAction = string;
 
 const newsInitialState: NewsSliceState = {
+  status: "",
   isList: true,
   selectedCountry: "pl",
   news: [],
@@ -45,6 +47,8 @@ const newsSlice = createSlice({
       state.isList = !state.isList;
     },
     populateNews(state, action: PayloadAction<NewsAction>) {
+      console.log(action.payload.status);
+
       state.news = action.payload.articles;
       state.totalResults = action.payload.totalResults;
     },

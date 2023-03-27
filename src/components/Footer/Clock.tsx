@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 const Clock = () => {
   const [getTime, setGetTime] = useState(new Date());
@@ -8,7 +8,7 @@ const Clock = () => {
 
   useEffect(() => {
     const intervalId = setInterval(refreshClock, 1000);
-    return function cleanUp() {
+    return ()=> {
       clearInterval(intervalId);
     };
   }, []);

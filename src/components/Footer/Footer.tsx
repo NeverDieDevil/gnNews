@@ -1,4 +1,4 @@
-import React from "react";
+
 import { useAppSelector } from "../../store/hooks";
 import Clock from "./Clock";
 import "../../styles/Footer.scss";

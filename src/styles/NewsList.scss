@@ -1,10 +1,12 @@
 .newslist {
+  width: 100%;
+  .news-list-container {
+    // display: flex;
+    // flex-wrap: wrap;
+  }
   .tiles {
-    display: grid;
-    grid-template-columns: repeat(
-      auto-fit,
-      minmax(min(100%, max(300px, 100%/4)), 1fr)
-    );
+    width: 100%;
+    margin: 5px;
   }
   ul {
     list-style: none;

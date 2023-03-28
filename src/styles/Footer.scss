@@ -1,6 +1,11 @@
 .gnnews-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  background: linear-gradient(0deg, #808080ff 25%, #80808000 75%);
-  //   position: sticky;
+  // position: sticky;
   bottom: 0;
+  background-color: #443c68;
+  border-top: 1px solid #00000050;
 }

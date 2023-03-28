@@ -1,8 +1,7 @@
 import "../../styles/Country.scss";
-import { fetchNews } from "../../store/news-actions";
-import { useAppDispatch } from "../../store/hooks";
-import { newsActions } from "../../store/news-slice";
-import { NavLink, useLocation } from "react-router-dom";
+
+import { NavLink } from "react-router-dom";
+import ListItem from "@mui/material/ListItem";
 
 // const images = require.context("../../images/flags", true)
 
@@ -23,10 +22,10 @@ const Country: React.FC<{
       className={({ isActive }) => (isActive ? "country active" : "country")}
       to={"/country/" + abbv}
     >
-      <li onClick={(e) => fetchData(abbv)}>
+      <ListItem onClick={(e) => fetchData(abbv)}>
         <img src={`../images/flags/${abbv}.svg`} alt="" className="flag" />
         <span className="country-name">{countryName}</span>
-      </li>
+      </ListItem>
     </NavLink>
   );
 };

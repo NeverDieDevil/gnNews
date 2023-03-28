@@ -7,12 +7,14 @@ import "../styles/Root.scss";
 const Root = () => {
   return (
     <div className="App">
-      <Header />
-      <div className="main-view">
-        <CountryList />
-        <Outlet />
+      <CountryList />
+      <div className="newspage">
+        <Header />
+        <div className="main-view">
+          <Outlet />
+        </div>
+        <Footer />
       </div>
-      <Footer />
     </div>
   );
 };

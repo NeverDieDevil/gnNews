@@ -1,16 +1,33 @@
+// .App {
+//   background-color: rgba(0, 0, 0, 0.1);
+//   position: relative;
+//   text-align: center;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+//   .main-view {
+//     margin-top: 1rem;
+//     display: flex;
+//     justify-content: space-between;
+//     width: 100%;
+//     margin: 20px;
+//   }
+// }
+
 .App {
-  background-color: rgba(0, 0, 0, 0.1);
-  position: relative;
-  text-align: center;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  .main-view {
-    margin-top: 1rem;
+  background-color: #443c68;
+  width: 100%;
+  color: #ffffff;
+
+  .newspage {
     display: flex;
-    justify-content: center;
-    width: 80%;
-    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    .main-view {
+      margin: 5% 10%;
+    }
   }
 }

@@ -1,19 +1,20 @@
 import React, { useEffect } from "react";
 import { useAppSelector, useAppDispatch } from "../../store/hooks";
 import { newsActions } from "../../store/news-slice";
+import { Switch, Stack, Typography } from "@mui/material";
 import "../../styles/Header.scss";
 
 const Header = () => {
   const isList = useAppSelector((state) => state.isList);
   const dispatch = useAppDispatch();
 
-  useEffect(()=>{
-    return ()=>{
+  useEffect(() => {
+    return () => {
       dispatch(newsActions.toggleView());
-    }
-  },[])
+    };
+  }, []);
 
-  const viewHandler = (e: React.MouseEvent<HTMLInputElement>) => {
+  const viewHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(newsActions.toggleView());
   };
 
@@ -24,12 +25,17 @@ const Header = () => {
         <p>News</p>
       </a>
       <div>
-        <span>LIST VIEW</span>
+        {/* <span>LIST VIEW</span>
         <label className="switch" htmlFor="viewSelector">
           <input name="viewSelector" type="checkbox" checked={!isList} />
           <span className="slider round" onClick={viewHandler}></span>
         </label>
-        <span>TILES VIEW</span>
+        <span>TILES VIEW</span> */}
+        <Stack direction="row" spacing={1} alignItems="center">
+          <Typography>List</Typography>
+          <Switch checked={!isList} onChange={(e) => viewHandler(e)} />
+          <Typography>Tiles</Typography>
+        </Stack>
       </div>
     </header>
   );

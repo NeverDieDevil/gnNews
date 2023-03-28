@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import { useAppSelector } from "../../store/hooks";
 import "../../styles/NewsItem.scss";
 import Modal from "./Modal";
+import { Grid } from "@mui/material";
 
 const NewsItem: React.FC<{
   title: string;
   source: string;
   date: Date;
-  img?: string;
-  desc?: string;
+  img: string;
+  desc: string;
   author: string;
   newsUrl: string;
 }> = (props) => {
@@ -17,6 +18,7 @@ const NewsItem: React.FC<{
   const { title, source, date, img, desc, newsUrl, author } = props;
   const data = new Date(date);
   const showModalHandler = () => {
+    console.log("showing or closing modal");
     setIsModalShown((prevState) => {
       prevState = !prevState;
       return prevState;
@@ -24,11 +26,15 @@ const NewsItem: React.FC<{
   };
   return (
     <>
-      <li
-        onClick={!isList ? showModalHandler : () => {}}
+      <Grid
+        item
         className={`news-item ${isList ? "list" : "tile"}`}
+        onClick={!isList ? showModalHandler : () => {}}
+        xs={12}
+        md={6}
+        lg={4}
       >
-        {isList ? null : <img src={img} alt="there should be photo..." />}
+        {isList ? null : <img src={img} alt="" />}
         <span className="news-item_title">{title}</span>
         <span className="news-item-details">
           <span className="news-item-details_source">{source}</span>
@@ -36,9 +42,10 @@ const NewsItem: React.FC<{
             {data.toLocaleDateString()}
           </span>
         </span>
-      </li>
+      </Grid>
       {isModalShown && !isList ? (
         <Modal
+          desc={desc}
           author={author}
           title={title}
           newsUrl={newsUrl}

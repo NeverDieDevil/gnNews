@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "./index";
 
-type News = {
+export type News = {
   source: {
     id: string;
     name: string;
@@ -15,7 +15,7 @@ type News = {
   content?: string;
 };
 
-type NewsSliceState = {
+export type NewsSliceState = {
   status: string;
   isList: boolean;
   selectedCountry: string;

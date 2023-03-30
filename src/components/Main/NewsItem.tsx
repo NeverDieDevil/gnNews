@@ -27,6 +27,7 @@ const NewsItem: React.FC<{
   return (
     <>
       <Grid
+        data-testid="news-item"
         item
         className={`news-item ${isList ? "list" : "tile"}`}
         onClick={!isList ? showModalHandler : () => {}}

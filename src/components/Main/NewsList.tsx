@@ -11,7 +11,7 @@ const NewsList = () => {
   return (
     <main className={`newslist `}>
       {isList ? (
-        <div className={isList ? "list" : "tiles"}>
+        <div data-testid="news-list" className={isList ? "list" : "tiles"}>
           {newsList.map((news) => {
             return (
               <NewsItem

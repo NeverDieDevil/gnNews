@@ -3,6 +3,7 @@ import { useAppSelector, useAppDispatch } from "../../store/hooks";
 import { newsActions } from "../../store/news-slice";
 import { Switch, Stack, Typography } from "@mui/material";
 import "../../styles/Header.scss";
+import { Link } from "react-router-dom";
 
 export const sum = (a: number, b: number) => {
   return a + b;
@@ -14,21 +15,21 @@ const Header = () => {
 
   useEffect(() => {
     return () => {
-      dispatch(newsActions.toggleView());
+      dispatch(newsActions.setIsList(true));
     };
   }, []);
 
   const viewHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    dispatch(newsActions.toggleView());
+    dispatch(newsActions.setIsList(!e.target.checked));
     console.log("firing viewHandler");
   };
 
   return (
     <header className="header">
-      <a href="#">
+      <Link to="/">
         <h1>gN</h1>
         <h1>News</h1>
-      </a>
+      </Link>
       <div>
         {/* <span>LIST VIEW</span>
         <label className="switch" htmlFor="viewSelector">

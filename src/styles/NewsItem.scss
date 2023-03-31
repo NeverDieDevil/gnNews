@@ -3,6 +3,7 @@
   background: linear-gradient(135deg, #00000030 30%, #00000000 60%);
   padding: 10px;
   border-radius: 5px;
+  margin: 5px;
   &:nth-child(2n) {
     background: linear-gradient(-45deg, #00000030 20%, #00000000 80%);
   }

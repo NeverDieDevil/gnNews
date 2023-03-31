@@ -9,9 +9,9 @@ const NewsList = () => {
   console.log(newsList);
   const isList = useAppSelector((state) => state.isList);
   return (
-    <main className={`newslist `}>
+    <main className={`news-list`}>
       {isList ? (
-        <div data-testid="news-list" className={isList ? "list" : "tiles"}>
+        <div data-testid="news-list">
           {newsList.map((news) => {
             return (
               <NewsItem

@@ -43,8 +43,10 @@ const newsSlice = createSlice({
   name: "news",
   initialState: newsInitialState,
   reducers: {
-    toggleView(state) {
-      state.isList = !state.isList;
+    setIsList(state, action) {
+      // state.isList = !state.isList;
+      state.isList = action.payload;
+
     },
     populateNews(state, action: PayloadAction<NewsAction>) {
       console.log(action.payload.status);

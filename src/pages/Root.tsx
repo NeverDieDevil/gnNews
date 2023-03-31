@@ -8,7 +8,7 @@ const Root = () => {
   return (
     <div className="App">
       <CountryList />
-      <div className="newspage">
+      <div className="news-page">
         <Header />
         <div className="main-view">
           <Outlet />
